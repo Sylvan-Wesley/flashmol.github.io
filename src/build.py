@@ -41,7 +41,7 @@ FIGS = {
     </figure>""",
     "<!--FIG_FRAMEWORK-->": """
     <figure>
-      <img src="fig/training_diagram.png" alt="FlashMol training framework: the few-step generator produces molecules, the fake score network and discriminator update for five steps, then their outputs form the DMD and Jensen-Shannon gradients that update the generator.">
+      <img src="fig/training_diagram.png" alt="FlashMol training framework: the few-step generator maps noise to latents on respaced timesteps, the fake score network and discriminator update for five steps on noisy generated and real latents, then the teacher and fake scores form the DMD gradient, weighted by the discriminator-based JS term, to update the generator once. Side panels show the respaced timestep schedule, one training iteration, and inference.">
       <figcaption><b>Figure 2 &middot; Training framework.</b> Each iteration, the few-step generator <i>G</i> produces a batch of sampled molecules. The &mu;<sub>fake</sub> model approximating the fake score and the discriminator <i>D</i> are updated first, for five steps each, with the diffusion loss and the GAN loss. Their outputs then give the DMD and Jensen&ndash;Shannon gradients, which are mixed and applied to <i>G</i>.</figcaption>
     </figure>""",
     "<!--FIG_SCHEDULE-->": """
